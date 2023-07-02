@@ -1,0 +1,5 @@
+INSERT INTO smart_service (service_id, service_name, service_type, service_category, service_description, service_provider, service_identifier, service_status) VALUES (1, "Smart Security System", "IoT", "Security", "A smart service that provides advanced security features for homes and offices.", "SecureTech Solutions", "A90003", "ACTIVE");
+INSERT INTO smart_service (service_id, service_name, service_type, service_category, service_description, service_provider, service_identifier, service_status) VALUES (2, "Home Automation System", "IoT", "Home Automation", "A smart service that enables automated control of home devices.", "SmartIx", "A90000", "ACTIVE");
+INSERT INTO smart_service (service_id, service_name, service_type, service_category, service_description, service_provider, service_identifier, service_status) VALUES (3, "Environmental Monitoring", "IoT", "Environmental Monitoring", "A smart service that monitors and analyzes environmental conditions.", "EcoTech Solutions", "A90001", "ACTIVE");
+
+ALTER SEQUENCE hibernate_sequence RESTART WITH 4;
