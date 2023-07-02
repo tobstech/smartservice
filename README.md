@@ -22,6 +22,18 @@ It is a smart model which exposes APIs for Smart Service.
 - Get smart service by service id http://localhost:9098/smart-services/SERVICE-ID [GET method]
 - Delete an existing smart service http://localhost:9098/smart-services/SERVICE-ID [DELETE method]
 
+## Pull postgres image from docker and start postgres database server on docker
+
+You can pull postgres docker image using the command below:
+```shell script
+docker pull postgres
+```
+
+You can start postgres database server on docker using:
+```shell script
+docker run --name smart_service_db -e POSTGRES_USER=username -e POSTGRES_PASSWORD=password -e POSTGRES_DB=smart_service_db -p 5432:5432 postgres:14
+```
+
 
 ## Build & Running the application in dev mode
 
