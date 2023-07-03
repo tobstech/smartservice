@@ -1,0 +1,319 @@
+{
+	"info": {
+		"_postman_id": "0eb7d4b2-a988-4adb-89d4-05e0fdb1ace3",
+		"name": "Smart Service APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Smart Service",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"serviceName\": \"Environmental Monitoring\",\r\n    \"serviceType\": \"IoT\",\r\n    \"serviceCategory\": \"Environmental Monitoring\",\r\n    \"serviceDescription\": \"A smart service that monitors and analyzes environmental conditions.\",\r\n    \"serviceProvider\": \"EcoTech Solutions\",\r\n    \"serviceIdentifier\": \"A90001\",\r\n    \"serviceStatus\": \"ACTIVE\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9098/smart-services",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9098",
+					"path": [
+						"smart-services"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Smart Service",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"serviceName\": \"Environmental Monitoring\",\r\n    \"serviceType\": \"IoT\",\r\n    \"serviceCategory\": \"Environmental Monitoring\",\r\n    \"serviceDescription\": \"A smart service that monitors and analyzes environmental conditions.\",\r\n    \"serviceProvider\": \"EcoTech Solutions\",\r\n    \"serviceIdentifier\": \"A90001\",\r\n    \"serviceStatus\": \"ACTIVE\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9098/smart-services",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9098",
+							"path": [
+								"smart-services"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-length",
+							"value": "71"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": 201,\n    \"responseMessage\": \"Service Created Successfully!.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get All Smart Services",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9098/smart-services",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9098",
+					"path": [
+						"smart-services"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get All Smart Services",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9098/smart-services",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9098",
+							"path": [
+								"smart-services"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "content-length",
+							"value": "1204"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"serviceId\": 401,\n        \"serviceName\": \"Smart Security System\",\n        \"serviceType\": \"IoT\",\n        \"serviceCategory\": \"Security\",\n        \"serviceDescription\": \"A smart service that provides advanced security features for homes and offices.\",\n        \"serviceProvider\": \"SecureTech Solutions\",\n        \"serviceIdentifier\": \"A90003\",\n        \"serviceStatus\": \"INACTIVE\"\n    },\n    {\n        \"serviceId\": 402,\n        \"serviceName\": \"Home Automation System\",\n        \"serviceType\": \"IoT\",\n        \"serviceCategory\": \"Home Automation\",\n        \"serviceDescription\": \"A smart service that enables automated control of home devices.\",\n        \"serviceProvider\": \"SmartIx\",\n        \"serviceIdentifier\": \"A90000\",\n        \"serviceStatus\": \"ACTIVE\"\n    },\n    {\n        \"serviceId\": 403,\n        \"serviceName\": \"Environmental Monitoring\",\n        \"serviceType\": \"IoT\",\n        \"serviceCategory\": \"Environmental Monitoring\",\n        \"serviceDescription\": \"A smart service that monitors and analyzes environmental conditions.\",\n        \"serviceProvider\": \"EcoTech Solutions\",\n        \"serviceIdentifier\": \"A90001\",\n        \"serviceStatus\": \"ACTIVE\"\n    },\n    {\n        \"serviceId\": 551,\n        \"serviceName\": \"Environmental Monitoring\",\n        \"serviceType\": \"IoT\",\n        \"serviceCategory\": \"Environmental Monitoring\",\n        \"serviceDescription\": \"A smart service that monitors and analyzes environmental conditions.\",\n        \"serviceProvider\": \"EcoTech Solutions\",\n        \"serviceIdentifier\": \"A90001\",\n        \"serviceStatus\": \"ACTIVE\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Search Smart Services",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"serviceCategory\":\"Security\",\r\n    \"serviceIdentifier\": \"A90003\",\r\n    \"serviceId\":401,\r\n    \"serviceStatus\":\"INACTIVE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9098/smart-services/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9098",
+					"path": [
+						"smart-services",
+						"search"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Search Smart Services",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"serviceCategory\":\"Security\",\r\n    \"serviceIdentifier\": \"A90003\",\r\n    \"serviceId\":401,\r\n    \"serviceStatus\":\"INACTIVE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9098/smart-services/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9098",
+							"path": [
+								"smart-services",
+								"search"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "content-length",
+							"value": "306"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"serviceId\": 401,\n        \"serviceName\": \"Smart Security System\",\n        \"serviceType\": \"IoT\",\n        \"serviceCategory\": \"Security\",\n        \"serviceDescription\": \"A smart service that provides advanced security features for homes and offices.\",\n        \"serviceProvider\": \"SecureTech Solutions\",\n        \"serviceIdentifier\": \"A90003\",\n        \"serviceStatus\": \"INACTIVE\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get Smart Service By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9098/smart-services/401",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9098",
+					"path": [
+						"smart-services",
+						"401"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Smart Service By ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9098/smart-services/401",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9098",
+							"path": [
+								"smart-services",
+								"401"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "content-length",
+							"value": "304"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"serviceId\": 401,\n    \"serviceName\": \"Smart Security System\",\n    \"serviceType\": \"IoT\",\n    \"serviceCategory\": \"Security\",\n    \"serviceDescription\": \"A smart service that provides advanced security features for homes and offices.\",\n    \"serviceProvider\": \"SecureTech Solutions\",\n    \"serviceIdentifier\": \"A90003\",\n    \"serviceStatus\": \"INACTIVE\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Smart Service",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9098/smart-services/551",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9098",
+					"path": [
+						"smart-services",
+						"551"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Smart Service",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9098/smart-services/551",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9098",
+							"path": [
+								"smart-services",
+								"551"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-length",
+							"value": "71"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": 200,\n    \"responseMessage\": \"Service Deleted Successfully!.\"\n}"
+				}
+			]
+		}
+	]
+}

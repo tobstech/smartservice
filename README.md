@@ -34,6 +34,13 @@ You can start postgres database server on docker using:
 docker run --name smart_service_db -e POSTGRES_USER=username -e POSTGRES_PASSWORD=password -e POSTGRES_DB=smart_service_db -p 5432:5432 postgres:14
 ```
 
+## Postman Collection With Endpoints & Example Request
+
+The postman collection with example request and response can be found in the dir:
+
+```shell script
+src/main/resources/Smart Service APIs.postman_collection.json
+```
 
 ## Build & Running the application in dev mode
 
