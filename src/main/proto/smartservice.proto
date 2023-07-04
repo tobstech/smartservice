@@ -1,0 +1,69 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "org.smartix";
+option java_outer_classname = "SmartServiceGrpcProto";
+
+package smartservice;
+
+service SmartServiceGrpc {
+
+    rpc GetAllSmartServices (Empty) returns (GetSmartServicesResponse) {}
+
+    rpc CreateSmartService (SmartServiceRequest) returns (SmartServiceResponse) {}
+
+    rpc SearchSmartService (SearchSmartServiceRequest) returns (GetSmartServicesResponse) {}
+
+    rpc GetSmartServiceById (SmartServiceIDRequest) returns (SmartService) {}
+
+    rpc DeleteSmartServiceById (SmartServiceIDRequest) returns (SmartServiceResponse) {}
+
+}
+
+message Empty {
+
+}
+
+message GetSmartServicesResponse {
+    repeated SmartService smartServices = 1;
+}
+
+message SmartService {
+    int64 serviceId = 1;
+    string serviceName = 2;
+    string serviceType = 3;
+    string serviceCategory = 4;
+    string serviceDescription = 5;
+    string serviceProvider = 6;
+    string serviceIdentifier = 7;
+    string serviceStatus = 8;
+}
+
+message SmartServiceRequest {
+    string serviceName = 1;
+    string serviceType = 2;
+    string serviceCategory = 3;
+    string serviceDescription = 4;
+    string serviceProvider = 5;
+    string serviceIdentifier = 6;
+    string serviceStatus = 7;
+}
+
+message SmartServiceResponse {
+    int64 responseCode = 1;
+    string responseMessage = 2;
+}
+
+message SearchSmartServiceRequest {
+    string serviceName = 1;
+    string serviceType = 2;
+    string serviceCategory = 3;
+    string serviceId = 4;
+    string serviceProvider = 5;
+    string serviceIdentifier = 6;
+    string serviceStatus = 7;
+}
+
+message SmartServiceIDRequest {
+    int64 serviceId = 1;
+}

@@ -1,5 +1,14 @@
 package org.smartix.smartservice.resource;
 
+import com.google.common.util.concurrent.ListenableFuture;
+import io.grpc.ManagedChannel;
+import io.grpc.ManagedChannelBuilder;
+import io.grpc.stub.StreamObserver;
+import io.quarkus.grpc.GrpcClient;
+import io.quarkus.grpc.MutinyStub;
+import io.smallrye.common.annotation.NonBlocking;
+import io.smallrye.mutiny.Multi;
+import io.smallrye.mutiny.Uni;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
@@ -11,13 +20,23 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+import org.smartix.Empty;
+import org.smartix.GetSmartServicesResponse;
+import org.smartix.SmartServiceGrpc;
+import org.smartix.SmartServiceGrpcGrpc;
 import org.smartix.smartservice.entity.SmartService;
 import org.smartix.smartservice.models.Responses;
 import org.smartix.smartservice.models.SearchCriteria;
 import org.smartix.smartservice.models.SmartServiceRequest;
 import org.smartix.smartservice.repository.SmartServiceRepository;
+import org.smartix.smartservice.service.SmartServiceGrpcService;
 import org.smartix.smartservice.service.SmartServiceService;
+
+import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutionException;
+import java.util.function.Function;
 
 @Path("/smart-services")
 @Produces(MediaType.APPLICATION_JSON)
@@ -27,6 +46,10 @@ public class SmartServiceResource {
 
     @Inject
     SmartServiceRepository smartServiceRepository;
+
+    @GrpcClient("smartService")
+    SmartServiceGrpc smartServiceGrpc;
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Operation(
@@ -150,6 +173,8 @@ public class SmartServiceResource {
                 .findBySearch(formedQuery);
         return Response.ok(smartServices).build();
     }
+
+
 
 
 
